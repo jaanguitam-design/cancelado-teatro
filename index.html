@@ -14,6 +14,7 @@
             --accent-red: #e50914;
             --accent-blue: #0071eb;
             --card-bg: #1a1a1a;
+            /* SE RESPETA LA TIPOGRAFÍA HURME/MONTSERRAT PARA EL RESTO DE LA WEB */
             --font-main: 'Hurme Geometric Sans 3', 'Montserrat', sans-serif;
         }
 
@@ -37,7 +38,7 @@
             padding: 0 20px;
         }
 
-        /* Header / Hero */
+        /* Header / Hero - AHORA CON IMAGEN */
         header {
             position: relative;
             height: 100vh;
@@ -45,51 +46,26 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1515 0%, #0d0d0d 100%);
+            background: #000; /* Fondo negro puro para que el JPG se fusione mejor si no es PNG transparente */
             border-bottom: 1px solid #222;
         }
 
         .hero-content {
             z-index: 10;
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .logo-title {
-            font-size: 4rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        /* Efecto tachado para "CANCELADO" */
-        .logo-title::after {
-            content: "";
-            position: absolute;
-            left: -5%;
-            top: 50%;
-            width: 110%;
-            height: 6px;
-            background-color: var(--text-color);
-            transform: rotate(-4deg);
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            color: #888;
+        /* ESTILO PARA LA IMAGEN DE CABECERA */
+        .hero-image {
+            max-width: 100%;
+            height: auto;
             margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .tagline span {
-            color: var(--accent-red);
-            font-weight: 700;
+            display: block;
         }
 
         /* Sección Sinopsis (Doble código visual: Rojo / Azul) */
@@ -201,6 +177,15 @@
         .dossier-card.rider .btn:hover { background-color: var(--accent-blue); border-color: var(--accent-blue); }
         .dossier-card.completo .btn:hover { background: #fff; color: #000; border-color: #fff; }
 
+        /* Botón especial Hero */
+        .btn-hero {
+            border-color: var(--accent-red);
+            margin-top: 20px;
+        }
+        .btn-hero:hover {
+            background-color: var(--accent-red);
+        }
+
         /* Sección Multimedia / Próximamente */
         .media-section {
             padding: 100px 0;
@@ -266,12 +251,12 @@
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION CON IMAGEN -->
     <header>
         <div class="hero-content">
-            <h1 class="logo-title">Cancelado</h1>
-            <p class="tagline">La risa es algo <span>muy serio</span></p>
-            <a href="#dossieres" class="btn" style="border-color: var(--accent-red);">Ver Dossieres</a>
+            <!-- AQUÍ SE INSERTA LA IMAGEN -->
+            <img src="web.jpg" alt="Cancelado - La risa es algo muy serio" class="hero-image">
+            <a href="#dossieres" class="btn btn-hero">Ver Dossieres</a>
         </div>
     </header>
 
