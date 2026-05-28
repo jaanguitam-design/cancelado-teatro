@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelado Teatro - Sitio Oficial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap');
+
+        /* Estilos Base inspirados en la atmósfera de la obra */
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #f5f5f5;
+            --accent-red: #e50914;
+            --accent-blue: #0071eb;
+            --card-bg: #1a1a1a;
+            --font-main: 'Hurme Geometric Sans 3', 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1515 0%, #0d0d0d 100%);
+            border-bottom: 1px solid #222;
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .logo-title {
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        /* Efecto tachado para "CANCELADO" */
+        .logo-title::after {
+            content: "";
+            position: absolute;
+            left: -5%;
+            top: 50%;
+            width: 110%;
+            height: 6px;
+            background-color: var(--text-color);
+            transform: rotate(-4deg);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #888;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .tagline span {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        /* Sección Sinopsis (Doble código visual: Rojo / Azul) */
+        .intro-section {
+            padding: 100px 0;
+            background: #0d0d0d;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-red);
+            margin: 15px auto 0 auto;
+        }
+
+        .synopsis-text {
+            font-size: 1.15rem;
+            color: #ccc;
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+            font-weight: 300;
+        }
+
+        /* Cuadrícula de Dossieres */
+        .dossier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dossier-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            padding: 40px 30px;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dossier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: #444;
+            transition: all 0.4s ease;
+        }
+
+        .dossier-card.breve::before { background: var(--accent-red); }
+        .dossier-card.rider::before { background: var(--accent-blue); }
+        .dossier-card.completo::before { background: linear-gradient(to bottom, var(--accent-red), var(--accent-blue)); }
+
+        .dossier-card:hover {
+            transform: translateY(-5px);
+            border-color: #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .dossier-card h3 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .dossier-card p {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: 1px solid #444;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .dossier-card.breve .btn:hover { background-color: var(--accent-red); border-color: var(--accent-red); }
+        .dossier-card.rider .btn:hover { background-color: var(--accent-blue); border-color: var(--accent-blue); }
+        .dossier-card.completo .btn:hover { background: #fff; color: #000; border-color: #fff; }
+
+        /* Sección Multimedia / Próximamente */
+        .media-section {
+            padding: 100px 0;
+            background-color: #0a0a0a;
+            border-top: 1px solid #111;
+            text-align: center;
+        }
+
+        .media-placeholder {
+            background: #111;
+            border: 1px dashed #333;
+            padding: 60px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .media-placeholder span {
+            display: block;
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        /* Contacto / Footer */
+        footer {
+            padding: 80px 0;
+            background-color: #050505;
+            border-top: 1px solid #111;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .credits {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="hero-content">
+            <h1 class="logo-title">Cancelado</h1>
+            <p class="tagline">La risa es algo <span>muy serio</span></p>
+            <a href="#dossieres" class="btn" style="border-color: var(--accent-red);">Ver Dossieres</a>
+        </div>
+    </header>
+
+    <!-- PROYECTO & DOSSIERES -->
+    <section class="intro-section" id="dossieres">
+        <div class="container">
+            <h2 class="section-title">El Proyecto</h2>
+            <p class="synopsis-text">
+                Una comedia negra con elementos de drama y thriller que transcurre en tiempo real. 
+                Un duelo escénico limpio, directo e incómodo sobre los límites del humor, la cultura de la cancelación y la paja en el ojo ajeno.
+            </p>
+
+            <h2 class="section-title" style="margin-top: 80px;">Documentación</h2>
+            <div class="dossier-grid">
+                
+                <!-- Dossier Breve -->
+                <div class="dossier-card breve">
+                    <div>
+                        <h3>Dossier Comercial</h3>
+                        <p>Versión ejecutiva y ágil. Ideal para programadores, áreas de cultura y distribuidores interesados en una lectura rápida de la propuesta artística y comercial.</p>
+                    </div>
+                    <a href="Breve DOSSIER CANCELADO.pdf" target="_blank" class="btn">Descargar PDF</a>
+                </div>
+
+                <!-- Rider Técnico -->
+                <div class="dossier-card rider">
+                    <div>
+                        <h3>Rider Técnico</h3>
+                        <p>Ficha técnica completa, plano de intenciones cenital, patch de canales y estados de iluminación (Código Rojo / Código Azul). Diseñado para técnicos de sala.</p>
+                    </div>
+                    <a href="Rider CANCELADO.pdf" target="_blank" class="btn">Descargar PDF</a>
+                </div>
+
+                <!-- Dossier Completo -->
+                <div class="dossier-card completo">
+                    <div>
+                        <h3>Dossier Íntegro</h3>
+                        <p>Toda la información unificada: propuesta artística, biografías del equipo, necesidades de contratación y el desglose técnico detallado paso a paso.</p>
+                    </div>
+                    <a href="Dossier + Raider CANCELADO.pdf" target="_blank" class="btn">Descargar PDF</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTIMEDIA / PRÓXIMAMENTE -->
+    <section class="media-section">
+        <div class="container">
+            <h2 class="section-title">Material Audiovisual</h2>
+            <div class="media-placeholder">
+                <span>Material en producción</span>
+                Teaser promocional disponible a mediados de junio.<br>
+                Grabación íntegra de la función disponible en julio de 2026.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>Distribución y Contratación</p>
+                <p style="font-weight: 700; font-size: 1.4rem;">Javier Martínez</p>
+                <p>Teléfono: <a href="tel:+34647627669">+34 647 62 76 69</a></p>
+            </div>
+            <p class="credits">© 2026 Cancelado Teatro. Texto y Dirección por Juan A. Anguita.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
