@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cancelado Teatro para programadores culturales y teatros: sinopsis, ficha artística, duración, público, rider técnico y contacto de contratación.">
+  <title>Cancelado Teatro | Para programadores y teatros</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap");
+
+    :root {
+      --bg: #050505;
+      --text: #f7f3ec;
+      --muted: #b9b1aa;
+      --soft: rgba(247, 243, 236, 0.14);
+      --neon: #ff8a1f;
+      --red: #df3c31;
+      --blue: #3977b9;
+      --max: 1180px;
+      --display: "Bebas Neue", Impact, sans-serif;
+      --sans: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 76% 24%, rgba(57, 119, 185, 0.09), transparent 28rem),
+        radial-gradient(circle at 20% 18%, rgba(223, 60, 49, 0.15), transparent 30rem),
+        linear-gradient(180deg, #080808 0%, #050505 46%, #0b0907 100%);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.3;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(8, 8, 8, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand,
+    h1,
+    h2,
+    h3,
+    .eyebrow,
+    .metric strong,
+    .spec-label,
+    .contact-name {
+      font-family: var(--display);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--neon);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .hero {
+      min-height: calc(100svh - 78px);
+      display: grid;
+      align-items: center;
+      padding: 76px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.7fr);
+      gap: clamp(38px, 7vw, 92px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--text);
+      font-size: clamp(1.35rem, 2.6vw, 2.25rem);
+      line-height: 1.05;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: clamp(3.8rem, 10vw, 8.2rem);
+      line-height: 0.9;
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(1.14rem, 2vw, 1.36rem);
+    }
+
+    .hero-mark {
+      width: min(620px, 100%);
+      margin-bottom: 34px;
+      filter: drop-shadow(0 24px 50px rgba(255, 95, 30, 0.18));
+    }
+
+    .poster {
+      justify-self: end;
+      width: min(330px, 100%);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), -18px -18px 70px rgba(57, 119, 185, 0.09);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 138, 31, 0.42);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: var(--neon);
+      background: rgba(255, 138, 31, 0.08);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 18px 48px rgba(223, 60, 49, 0.22);
+    }
+
+    .button.primary:hover {
+      background: #f04b3f;
+    }
+
+    section {
+      position: relative;
+      padding: 100px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    h2 {
+      margin-bottom: 34px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.94;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.05;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+      margin-bottom: 42px;
+    }
+
+    .section-head p,
+    .copy p {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border-top: 1px solid var(--soft);
+      border-bottom: 1px solid var(--soft);
+      background: var(--soft);
+    }
+
+    .metric {
+      min-height: 150px;
+      padding: 24px;
+      background: rgba(8, 8, 8, 0.92);
+    }
+
+    .metric span {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .metric strong {
+      color: var(--text);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 0.95;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+      gap: clamp(34px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .copy {
+      max-width: 760px;
+    }
+
+    .copy p + p {
+      margin-top: 22px;
+    }
+
+    .spec-list {
+      border-top: 1px solid var(--soft);
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--soft);
+    }
+
+    .spec-label {
+      color: var(--neon);
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .spec-row p,
+    .spec-row ul {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .spec-row ul {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .downloads {
+      border-top: 1px solid var(--soft);
+    }
+
+    .download-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--soft);
+    }
+
+    .download-row p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 54px 0 0;
+      border-top: 1px solid var(--soft);
+    }
+
+    .contact-name {
+      display: block;
+      margin-bottom: 4px;
+      font-size: clamp(1.7rem, 3.2vw, 2.7rem);
+      line-height: 1;
+    }
+
+    .phone {
+      color: var(--neon);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: 104px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .section-head,
+      .two-col,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .poster {
+        justify-self: start;
+        width: min(260px, 78vw);
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .download-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-size: clamp(3.5rem, 18vw, 5.6rem);
+      }
+
+      h2 {
+        font-size: clamp(2.7rem, 15vw, 4.4rem);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="shell nav" aria-label="Navegación principal">
+      <a class="brand" href="index.html">Cancelado Teatro</a>
+      <div class="nav-links">
+        <a href="index.html#obra">La obra</a>
+        <a href="programadores.html" aria-current="page">Programadores</a>
+        <a href="index.html#dossieres">Dossieres</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Para programadores culturales y teatros</p>
+          <h1>Una comedia negra lista para sala</h1>
+          <img class="hero-mark" src="web.png" alt="Cancelado. La risa es algo muy serio.">
+          <p class="lead">
+            <strong>Cancelado</strong> es una propuesta escénica ágil, contemporánea y adaptable: dos intérpretes, un único espacio y un conflicto reconocible sobre humor, culpa y juicio público.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#contacto">Solicitar contratación</a>
+            <a class="button" href="Dossier + Raider CANCELADO.pdf" target="_blank" rel="noopener">Descargar dossier completo</a>
+          </div>
+        </div>
+        <img class="poster" src="cartel-cancelado.png" alt="Cartel promocional de Cancelado.">
+      </div>
+    </section>
+
+    <section aria-labelledby="ficha-title">
+      <div class="shell">
+        <div class="metrics" aria-label="Datos rápidos de la obra">
+          <div class="metric">
+            <span>Duración</span>
+            <strong>75/80 min</strong>
+          </div>
+          <div class="metric">
+            <span>Formato</span>
+            <strong>2 intérpretes</strong>
+          </div>
+          <div class="metric">
+            <span>Género</span>
+            <strong>Comedia negra</strong>
+          </div>
+          <div class="metric">
+            <span>Público</span>
+            <strong>+13 años</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sinopsis">
+      <div class="shell two-col">
+        <div class="copy">
+          <p class="eyebrow">Sinopsis</p>
+          <h2 id="ficha-title">Un show a punto de empezar. Una entrevista que lo cambia todo</h2>
+        </div>
+        <div class="copy">
+          <p>
+            David Pichardo, monologuista de éxito, está a punto de subirse al escenario con <strong>Cancelado</strong>, una función decisiva antes de dar un salto profesional. Minutos antes del comienzo aparece José Luis Buendía, un periodista peculiar que insiste en entrevistarlo.
+          </p>
+          <p>
+            Lo que parecía una conversación incómoda sobre humor, fama y límites se convierte en un duelo de tensión, sospecha y revelaciones. José Luis no ha llegado allí por casualidad. Y David no es exactamente como dice ser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="venta">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Por qué programarla</h2>
+          <p>
+            Una pieza de formato contenido, ritmo alto y tema reconocible para públicos actuales. Funciona en teatro, auditorio, sala alternativa y espacios escénicos con dotación técnica diversa.
+          </p>
+        </div>
+
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="spec-label">Tono</span>
+            <p>Comedia negra con elementos de drama y thriller. Humor incómodo, tensión progresiva y conflicto moral.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Público objetivo</span>
+            <p>Público adulto y joven-adulto interesado en teatro contemporáneo, comedia, debate social, cultura de la cancelación, redes y límites del humor. No recomendada para menores de 13 años.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Puesta en escena</span>
+            <p>Minimalista, ágil y adaptable. La obra se apoya en el trabajo actoral, la tensión del diálogo, la luz y unos pocos elementos escénicos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artistica">
+      <div class="shell two-col">
+        <div>
+          <p class="eyebrow">Ficha artística</p>
+          <h2>Equipo</h2>
+        </div>
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="spec-label">Texto y dirección</span>
+            <p>Juan A. Anguita</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Intérpretes</span>
+            <p>Rubén Román y Javier Martínez</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Personajes</span>
+            <p>Rubén Román interpreta a José Luis Buendía. Javier Martínez interpreta a David Pichardo.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Producción</span>
+            <p>Una producción de Rubén Román, Javier Martínez y Juan A. Anguita. Gestión de producción: Javier Martínez.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Diseño</span>
+            <p>Diseño gráfico, sonoro y audios: J. A. Anguita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnica">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Necesidades técnicas</h2>
+          <p>
+            El rider está planteado para ser expresivo y adaptable. La prioridad técnica es una lectura clara de los rostros, fondo negro y dos códigos de color: rojo para el territorio del show y azul para la confrontación.
+          </p>
+        </div>
+
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="spec-label">Espacio</span>
+            <p>Un único espacio escénico con fondo negro o cámara negra. Escenografía sobria y de montaje rápido.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Elementos</span>
+            <p>Micrófono, banca, mesa, banqueta, botellas, vaso, telón y objetos escénicos puntuales.</p>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Iluminación</span>
+            <ul>
+              <li>Ideal sencillo: 4-6 focos/LED RGB para fondo, 3 frontales neutros y 1 especial.</li>
+              <li>Mínimo funcional: 2 focos/LED para color de fondo, 2 frontales neutros y especial si es posible.</li>
+              <li>Rider adaptable a las características técnicas de cada espacio.</li>
+            </ul>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Tiempos</span>
+            <p>Montaje de escenografía: 5 minutos. Implantación técnica de luces y sonido: 3 horas. Desmontaje total: 45 minutos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiales">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Materiales</h2>
+          <p>Descarga los documentos según el nivel de información que necesites para valorar la programación.</p>
+        </div>
+
+        <div class="downloads">
+          <article class="download-row">
+            <div>
+              <h3>Dossier breve</h3>
+              <p>Lectura rápida de la propuesta artística y comercial.</p>
+            </div>
+            <a class="button" href="Breve DOSSIER CANCELADO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </article>
+          <article class="download-row">
+            <div>
+              <h3>Rider técnico</h3>
+              <p>Necesidades de montaje, iluminación y adaptación técnica.</p>
+            </div>
+            <a class="button" href="Rider CANCELADO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </article>
+          <article class="download-row">
+            <div>
+              <h3>Dossier completo</h3>
+              <p>Información artística, comercial y técnica en un único archivo.</p>
+            </div>
+            <a class="button primary" href="Dossier + Raider CANCELADO.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="shell cta">
+        <div>
+          <p class="eyebrow">Contratación</p>
+          <h2>Hablemos de llevar Cancelado a tu sala</h2>
+          <span class="contact-name">Javier Martínez</span>
+          <a class="phone" href="tel:+34647627669">+34 647 62 76 69</a>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="tel:+34647627669">Llamar</a>
+          <a class="button" href="Dossier + Raider CANCELADO.pdf" target="_blank" rel="noopener">Dossier completo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>© 2026 Cancelado Teatro</span>
+      <span>La risa es algo muy serio</span>
+    </div>
+  </footer>
+</body>
+</html>
