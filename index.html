@@ -243,6 +243,57 @@
       box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), -18px -18px 70px rgba(57, 119, 185, 0.09);
     }
 
+    .team-intro {
+      max-width: 780px;
+      margin-bottom: 54px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .team-list {
+      border-top: 1px solid var(--soft);
+    }
+
+    .team-member {
+      display: grid;
+      grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+      gap: clamp(24px, 5vw, 56px);
+      align-items: start;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--soft);
+    }
+
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.06);
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+    }
+
+    .team-role {
+      margin-bottom: 12px;
+      color: var(--neon);
+      font-weight: 700;
+    }
+
+    .team-member p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .team-link {
+      display: inline-flex;
+      margin-top: 4px;
+      color: var(--neon);
+      font-weight: 700;
+    }
+
+    .team-link:hover {
+      color: var(--text);
+    }
+
     .booking-head {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
@@ -358,6 +409,14 @@
         grid-template-columns: 1fr;
       }
 
+      .team-member {
+        grid-template-columns: 1fr;
+      }
+
+      .team-photo {
+        max-width: 280px;
+      }
+
       .poster {
         justify-self: start;
         width: min(260px, 78vw);
@@ -424,6 +483,7 @@
       <a class="brand" href="#inicio">Cancelado Teatro</a>
       <div class="nav-links">
         <a href="#obra">La obra</a>
+        <a href="#quienes">Quiénes somos</a>
         <a href="programadores.html">Programadores</a>
         <a href="#dossieres">Dossieres</a>
         <a href="#contacto">Contacto</a>
@@ -459,6 +519,61 @@
           </p>
         </div>
           <img class="poster" src="cartel-cancelado.png" alt="Cartel promocional de Cancelado.">
+      </div>
+    </section>
+
+    <section id="quienes">
+      <div class="shell">
+        <p class="eyebrow">Quiénes somos</p>
+        <h2>El equipo de Cancelado</h2>
+        <p class="team-intro">
+          Tres miradas para una misma obra: interpretación, escritura, dirección y producción se cruzan en una pieza que busca tensión, humor y una conversación incómoda con el presente.
+        </p>
+
+        <div class="team-list" aria-label="Equipo artístico de Cancelado">
+          <article class="team-member">
+            <img class="team-photo" src="assets/team/ruben-roman.jpg" alt="Retrato de Rubén Román.">
+            <div>
+              <h3>Rubén Román</h3>
+              <p class="team-role">Intérprete y producción · José Luis Buendía</p>
+              <p>
+                Actor formado en Escénica Granada, RESAD y Guindalera Escena Abierta, con maestros como Miguel Narros, Cristina Rota, Juan Pastor, Vicente Fuentes o Pablo Messiez. Ha trabajado con compañías como Teatro La Paca, In Vitro Teatro, Escalinata Teatro, Ur Teatro, La Refinería Teatro y Conchinchina Teatro.
+              </p>
+              <p>
+                Entre sus trabajos figuran <strong>Coriolano</strong>, <strong>La vida es sueño</strong>, <strong>El bobo del colegio</strong>, <strong>El hijo del aire</strong> y <strong>En el Paraíso</strong>. También cuenta con experiencia audiovisual y ha dirigido montajes como <strong>La comedia sin título</strong>, de García Lorca.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-member">
+            <img class="team-photo" src="assets/team/javier-martinez.jpg" alt="Retrato de Javier Martínez.">
+            <div>
+              <h3>Javier Martínez</h3>
+              <p class="team-role">Intérprete, producción y distribución · David Pichardo</p>
+              <p>
+                Actor con 17 años de trayectoria en montajes de teatro y trabajos delante de la cámara. Ha pasado por comedia, drama, musical y propuestas de un solo intérprete en escena, encarnando distintos personajes.
+              </p>
+              <p>
+                En teatro destacan trabajos como <strong>Cosas</strong> y <strong>A muerte</strong>. En audiovisual ha participado en varios cortometrajes y en películas como <strong>Salpicados por el desastre</strong>. En <strong>Cancelado</strong> asume también la gestión de producción y el contacto de distribución.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-member">
+            <img class="team-photo" src="assets/team/juan-anguita.jpg" alt="Retrato de Juan A. Anguita.">
+            <div>
+              <h3>Juan A. Anguita</h3>
+              <p class="team-role">Texto, dirección, diseño sonoro y producción</p>
+              <p>
+                Guionista, director de cine, docente y creador escénico. Vinculado al audiovisual desde muy joven, ha desarrollado proyectos de ficción, publicidad, teatro y creación audiovisual, combinando una mirada narrativa cinematográfica con el interés por las nuevas herramientas de creación digital e inteligencia artificial.
+              </p>
+              <p>
+                Entre sus trabajos destacan los largometrajes <strong>12 palabras</strong> y <strong>Semiprofesionales</strong>, disponibles en Filmin. En <strong>Cancelado</strong> firma texto y dirección, construyendo una comedia negra donde el humor se convierte en campo de batalla.
+              </p>
+              <a class="team-link" href="https://www.juanantonioanguita.es/" target="_blank" rel="noopener">www.juanantonioanguita.es</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
