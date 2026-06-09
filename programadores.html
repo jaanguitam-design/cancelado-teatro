@@ -322,6 +322,57 @@
       border-top: 1px solid var(--soft);
     }
 
+    .video-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, 360px);
+      gap: clamp(28px, 5vw, 52px);
+      align-items: start;
+      border-top: 1px solid var(--soft);
+      padding-top: 34px;
+    }
+
+    .video-item {
+      display: grid;
+      gap: 18px;
+    }
+
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+    }
+
+    .video-frame.short {
+      aspect-ratio: 9 / 16;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-label {
+      display: block;
+      color: var(--neon);
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .video-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .download-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -395,6 +446,7 @@
       .hero-grid,
       .section-head,
       .two-col,
+      .video-grid,
       .cta {
         grid-template-columns: 1fr;
       }
@@ -410,6 +462,10 @@
 
       .download-row {
         grid-template-columns: 1fr;
+      }
+
+      .video-frame.short {
+        max-width: 320px;
       }
     }
 
@@ -468,6 +524,7 @@
       <a class="brand" href="index.html">Cancelado Teatro</a>
       <div class="nav-links">
         <a href="index.html#obra">La obra</a>
+        <a href="#videos">Vídeos</a>
         <a href="index.html#quienes">Quiénes somos</a>
         <a href="programadores.html" aria-current="page">Programadores</a>
         <a href="index.html#dossieres">Dossieres</a>
@@ -588,6 +645,39 @@
             <span class="spec-label">Diseño</span>
             <p>Diseño gráfico, sonoro y audios: J. A. Anguita.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Material promocional</h2>
+          <p>
+            Dos piezas de vídeo para valorar el tono de la obra y apoyar la comunicación de sala, redes y programación cultural.
+          </p>
+        </div>
+
+        <div class="video-grid" aria-label="Vídeos promocionales de Cancelado">
+          <article class="video-item">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/GMfT_PMXtbM" title="Vídeo promocional de Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+              <span class="video-label">Promocional</span>
+              <p>Vídeo principal para presentar el clima, el conflicto y la energía escénica de <strong>Cancelado</strong>.</p>
+            </div>
+          </article>
+
+          <article class="video-item">
+            <div class="video-frame short">
+              <iframe src="https://www.youtube-nocookie.com/embed/76X0_ZdCn1A" title="Short promocional de Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+              <span class="video-label">Short</span>
+              <p>Pieza vertical para difusión rápida en redes y acompañamiento promocional.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>

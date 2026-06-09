@@ -294,6 +294,69 @@
       color: var(--text);
     }
 
+    .video-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+      margin-bottom: 46px;
+    }
+
+    .video-head p {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, 360px);
+      gap: clamp(28px, 5vw, 52px);
+      align-items: start;
+      border-top: 1px solid var(--soft);
+      padding-top: 34px;
+    }
+
+    .video-item {
+      display: grid;
+      gap: 18px;
+    }
+
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+    }
+
+    .video-frame.short {
+      aspect-ratio: 9 / 16;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-label {
+      color: var(--neon);
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .video-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .booking-head {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
@@ -405,6 +468,8 @@
       }
 
       .split,
+      .video-head,
+      .video-grid,
       .booking-head {
         grid-template-columns: 1fr;
       }
@@ -415,6 +480,10 @@
 
       .team-photo {
         max-width: 280px;
+      }
+
+      .video-frame.short {
+        max-width: 320px;
       }
 
       .poster {
@@ -483,6 +552,7 @@
       <a class="brand" href="#inicio">Cancelado Teatro</a>
       <div class="nav-links">
         <a href="#obra">La obra</a>
+        <a href="#videos">Vídeos</a>
         <a href="#quienes">Quiénes somos</a>
         <a href="programadores.html">Programadores</a>
         <a href="#dossieres">Dossieres</a>
@@ -519,6 +589,42 @@
           </p>
         </div>
           <img class="poster" src="cartel-cancelado.png" alt="Cartel promocional de Cancelado.">
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="shell">
+        <div class="video-head">
+          <div>
+            <p class="eyebrow">Vídeos promocionales</p>
+            <h2>Cancelado en vídeo</h2>
+          </div>
+          <p>
+            Piezas pensadas para enseñar el tono de la obra y apoyar la difusión en redes, programación cultural y comunicación de sala.
+          </p>
+        </div>
+
+        <div class="video-grid" aria-label="Vídeos promocionales de Cancelado">
+          <article class="video-item">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/GMfT_PMXtbM" title="Vídeo promocional de Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+              <span class="video-label">Promocional</span>
+              <p>Vídeo principal para presentar la obra y su atmósfera.</p>
+            </div>
+          </article>
+
+          <article class="video-item">
+            <div class="video-frame short">
+              <iframe src="https://www.youtube-nocookie.com/embed/76X0_ZdCn1A" title="Short promocional de Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+              <span class="video-label">Short</span>
+              <p>Pieza vertical para redes y difusión rápida.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
