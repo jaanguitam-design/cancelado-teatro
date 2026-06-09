@@ -309,7 +309,7 @@
 
     .video-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(230px, 360px);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(28px, 5vw, 52px);
       align-items: start;
       border-top: 1px solid var(--soft);
@@ -331,7 +331,7 @@
     }
 
     .video-frame.short {
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 16 / 9;
     }
 
     .video-frame iframe {
@@ -480,10 +480,6 @@
 
       .team-photo {
         max-width: 280px;
-      }
-
-      .video-frame.short {
-        max-width: 320px;
       }
 
       .poster {
