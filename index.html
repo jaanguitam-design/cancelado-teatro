@@ -307,6 +307,44 @@
       font-size: clamp(1.08rem, 1.8vw, 1.22rem);
     }
 
+    .interview-block {
+      margin-bottom: 72px;
+    }
+
+    .interview-title {
+      margin-bottom: 28px;
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .interview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 30px);
+      border-top: 1px solid var(--soft);
+      padding-top: 30px;
+    }
+
+    .interview-item {
+      display: grid;
+      gap: 14px;
+    }
+
+    .interview-item .video-frame {
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+    }
+
+    .interview-number {
+      color: var(--neon);
+      font-family: var(--display);
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+
     .video-grid {
       display: grid;
       grid-template-columns: minmax(0, 980px);
@@ -495,6 +533,10 @@
         grid-template-columns: 1fr;
       }
 
+      .interview-grid {
+        grid-template-columns: 1fr;
+      }
+
       .poster {
         justify-self: start;
         width: min(260px, 78vw);
@@ -611,6 +653,32 @@
           <p>
             Piezas pensadas para enseñar el tono de la obra y apoyar la difusión en redes, programación cultural y comunicación de sala.
           </p>
+        </div>
+
+        <div class="interview-block">
+          <h3 class="interview-title">CANCELADO en 1 minuto</h3>
+          <div class="interview-grid" aria-label="Mini entrevistas de Cancelado">
+            <article class="interview-item">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/VleohnQQRI4?rel=0&amp;playsinline=1&amp;origin=https%3A%2F%2Fjaanguitam-design.github.io" title="CANCELADO en 1 minuto, entrevista 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <span class="interview-number">01 · Entrevista</span>
+            </article>
+
+            <article class="interview-item">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/OL7TABAP4YE?rel=0&amp;playsinline=1&amp;origin=https%3A%2F%2Fjaanguitam-design.github.io" title="CANCELADO en 1 minuto, entrevista 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <span class="interview-number">02 · Entrevista</span>
+            </article>
+
+            <article class="interview-item">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/E8vJXgiRu0Q?rel=0&amp;playsinline=1&amp;origin=https%3A%2F%2Fjaanguitam-design.github.io" title="CANCELADO en 1 minuto, entrevista 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <span class="interview-number">03 · Entrevista</span>
+            </article>
+          </div>
         </div>
 
         <div class="video-grid" aria-label="Vídeos promocionales de Cancelado">
