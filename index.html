@@ -404,6 +404,81 @@
       color: var(--muted);
     }
 
+    .press-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+      margin-bottom: 46px;
+    }
+
+    .press-head p {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .press-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 4vw, 42px);
+      border-top: 1px solid var(--soft);
+      padding-top: 34px;
+    }
+
+    .press-item {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+    }
+
+    .press-item.featured {
+      grid-column: 1 / -1;
+    }
+
+    .press-image {
+      display: block;
+      overflow: hidden;
+      background: #0a0a0a;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+    }
+
+    .press-image img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .press-image:hover img {
+      opacity: 0.9;
+      transform: scale(1.01);
+    }
+
+    .press-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: baseline;
+      color: var(--muted);
+    }
+
+    .press-meta span {
+      color: var(--neon);
+      font-family: var(--display);
+      font-size: 1.25rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .press-download {
+      font-weight: 700;
+    }
+
+    .press-download:hover {
+      color: var(--neon);
+    }
+
     .booking-head {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
@@ -517,6 +592,7 @@
       .split,
       .video-head,
       .video-grid,
+      .press-head,
       .booking-head {
         grid-template-columns: 1fr;
       }
@@ -535,6 +611,14 @@
 
       .interview-grid {
         grid-template-columns: 1fr;
+      }
+
+      .press-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .press-item.featured {
+        grid-column: auto;
       }
 
       .poster {
@@ -604,6 +688,7 @@
       <div class="nav-links">
         <a href="#obra">La obra</a>
         <a href="#videos">Vídeos</a>
+        <a href="#prensa">Prensa</a>
         <a href="#quienes">Quiénes somos</a>
         <a href="programadores.html">Programadores</a>
         <a href="#dossieres">Dossieres</a>
@@ -701,6 +786,52 @@
               <p>Pieza vertical para redes y difusión rápida.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prensa">
+      <div class="shell">
+        <div class="press-head">
+          <div>
+            <p class="eyebrow">Prensa</p>
+            <h2>Imágenes promocionales</h2>
+          </div>
+          <p>
+            Retratos y material gráfico de <strong>Cancelado</strong> disponibles para comunicación, programación y prensa. Próximamente incorporaremos una selección de fotografías de escena.
+          </p>
+        </div>
+
+        <div class="press-gallery" aria-label="Galería de imágenes promocionales">
+          <figure class="press-item featured">
+            <a class="press-image" href="assets/press/cancelado-prensa-02.jpg" target="_blank" rel="noopener">
+              <img src="assets/press/cancelado-prensa-02.jpg" width="2200" height="1440" alt="El equipo de Cancelado en el patio de butacas." loading="lazy">
+            </a>
+            <figcaption class="press-meta">
+              <span>01 · Promocional</span>
+              <a class="press-download" href="assets/press/cancelado-prensa-02.jpg" download>Descargar JPG</a>
+            </figcaption>
+          </figure>
+
+          <figure class="press-item">
+            <a class="press-image" href="assets/press/cancelado-prensa-01.jpg" target="_blank" rel="noopener">
+              <img src="assets/press/cancelado-prensa-01.jpg" width="2200" height="1406" alt="Retrato promocional del equipo de Cancelado sobre fondo negro." loading="lazy">
+            </a>
+            <figcaption class="press-meta">
+              <span>02 · Promocional</span>
+              <a class="press-download" href="assets/press/cancelado-prensa-01.jpg" download>Descargar JPG</a>
+            </figcaption>
+          </figure>
+
+          <figure class="press-item">
+            <a class="press-image" href="assets/press/cancelado-prensa-03.jpg" target="_blank" rel="noopener">
+              <img src="assets/press/cancelado-prensa-03.jpg" width="2200" height="1114" alt="El equipo de Cancelado en una imagen promocional en blanco y negro." loading="lazy">
+            </a>
+            <figcaption class="press-meta">
+              <span>03 · Promocional</span>
+              <a class="press-download" href="assets/press/cancelado-prensa-03.jpg" download>Descargar JPG</a>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
