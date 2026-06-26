@@ -479,6 +479,106 @@
       color: var(--neon);
     }
 
+    .media-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+      margin-bottom: 42px;
+    }
+
+    .media-head p {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .media-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      border-top: 1px solid var(--soft);
+      padding-top: 30px;
+    }
+
+    .media-card {
+      display: grid;
+      min-height: 232px;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--soft);
+      background: rgba(255, 255, 255, 0.018);
+    }
+
+    .media-card small {
+      color: var(--neon);
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .media-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .media-logo {
+      display: grid;
+      width: 76px;
+      height: 76px;
+      align-items: center;
+      justify-items: center;
+      padding: 10px;
+      border: 1px solid rgba(247, 243, 236, 0.22);
+      border-radius: 6px;
+      background: rgba(247, 243, 236, 0.86);
+    }
+
+    .media-logo img {
+      width: 100%;
+      max-width: 54px;
+      max-height: 54px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .media-logo.ep img {
+      max-width: 58px;
+      max-height: 24px;
+    }
+
+    .media-logo.extra img {
+      max-width: 54px;
+      max-height: 54px;
+    }
+
+    .media-logo.sur img {
+      max-width: 44px;
+      max-height: 52px;
+    }
+
+    .media-logo.rne img {
+      max-width: 58px;
+      max-height: 32px;
+    }
+
+    .media-link {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .media-link:hover {
+      color: var(--neon);
+    }
+
+    .media-audio {
+      width: 100%;
+      height: 34px;
+      accent-color: var(--neon);
+    }
+
     .booking-head {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
@@ -593,6 +693,7 @@
       .video-head,
       .video-grid,
       .press-head,
+      .media-head,
       .booking-head {
         grid-template-columns: 1fr;
       }
@@ -617,6 +718,10 @@
         grid-template-columns: 1fr;
       }
 
+      .media-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .press-item.featured {
         grid-column: auto;
       }
@@ -629,6 +734,10 @@
       .dossier-row {
         grid-template-columns: 1fr;
         gap: 12px;
+      }
+
+      .media-list {
+        grid-template-columns: 1fr;
       }
 
       .dossier-row .button {
@@ -689,6 +798,7 @@
         <a href="#obra">La obra</a>
         <a href="#videos">Vídeos</a>
         <a href="#prensa">Prensa</a>
+        <a href="#medios">Medios</a>
         <a href="#quienes">Quiénes somos</a>
         <a href="programadores.html">Programadores</a>
         <a href="#dossieres">Dossieres</a>
@@ -832,6 +942,68 @@
               <a class="press-download" href="assets/press/cancelado-prensa-03.jpg" download>Descargar JPG</a>
             </figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="medios">
+      <div class="shell">
+        <div class="media-head">
+          <div>
+            <p class="eyebrow">En los medios</p>
+            <h2>Hablan de Cancelado</h2>
+          </div>
+          <p>
+            Artículos, entrevistas y apariciones en prensa sobre el estreno de <strong>Cancelado</strong>, los límites del humor y la cultura de la cancelación.
+          </p>
+        </div>
+
+        <div class="media-list" aria-label="Publicaciones y entrevistas en medios">
+          <article class="media-card">
+            <div class="media-logo ep">
+              <img src="assets/media/europa-press-logo.png" width="1799" height="214" alt="Europa Press">
+            </div>
+            <div>
+              <small>Prensa</small>
+              <p>Estreno de <strong>Cancelado</strong> y los límites del humor.</p>
+            </div>
+            <a class="media-link" href="https://www.europapress.es/andalucia/noticia-upm-jaen-acoge-viernes-estreno-cancelado-limites-humor-cultura-cancelacion-20260624182704.html" target="_blank" rel="noopener">Leer artículo</a>
+          </article>
+
+          <article class="media-card">
+            <div class="media-logo extra">
+              <img src="assets/media/extra-jaen-logo.png" width="1200" height="849" alt="Extra Jaén">
+            </div>
+            <div>
+              <small>Prensa</small>
+              <p>Juan Antonio Anguita estrena <strong>Cancelado</strong> en la UPM.</p>
+            </div>
+            <a class="media-link" href="https://extrajaen.com/cultura/juan-antonio-anguita-estrena-cancelado-este-viernes-en-la-upm" target="_blank" rel="noopener">Leer artículo</a>
+          </article>
+
+          <article class="media-card">
+            <div class="media-logo sur">
+              <img src="assets/media/canal-sur-radio-logo.png" width="2400" height="2400" alt="Canal Sur Radio">
+            </div>
+            <div>
+              <small>Radio</small>
+              <p>Entrevista sobre la obra y su estreno.</p>
+            </div>
+            <span class="media-link">Próximamente</span>
+          </article>
+
+          <article class="media-card">
+            <div class="media-logo rne">
+              <img src="assets/media/rne-logo.png" width="1280" height="648" alt="RNE">
+            </div>
+            <div>
+              <small>Radio</small>
+              <p>Entrevista en Radio Nacional de España Jaén.</p>
+            </div>
+            <audio class="media-audio" controls preload="none" src="assets/media/rne-jaen-entrevista-anguita.mp3">
+              Tu navegador no permite reproducir este audio.
+            </audio>
+          </article>
         </div>
       </div>
     </section>
