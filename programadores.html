@@ -360,6 +360,21 @@
       letter-spacing: 0;
     }
 
+    .audience-video {
+      display: grid;
+      grid-template-columns: minmax(0, 980px);
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 72px;
+      border-top: 1px solid var(--soft);
+      padding-top: 34px;
+    }
+
+    .audience-video p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .video-grid {
       display: grid;
       grid-template-columns: minmax(0, 980px);
@@ -736,6 +751,16 @@
             </article>
           </div>
         </div>
+
+        <article class="audience-video">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/GTSQTZPVFOg?rel=0&amp;playsinline=1&amp;origin=https%3A%2F%2Fjaanguitam-design.github.io" title="Comentarios del público sobre Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div>
+            <span class="video-label">El público habla</span>
+            <p>Primeras impresiones y comentarios después de ver Cancelado.</p>
+          </div>
+        </article>
 
         <div class="video-grid" aria-label="Vídeos promocionales de Cancelado">
           <article class="video-item">
