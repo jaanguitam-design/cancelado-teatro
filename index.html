@@ -374,14 +374,6 @@
       gap: 18px;
     }
 
-    .video-item + .video-item {
-      grid-template-columns: minmax(180px, 320px) minmax(0, 1fr);
-      gap: clamp(22px, 4vw, 36px);
-      align-items: center;
-      padding-top: 30px;
-      border-top: 1px solid var(--soft);
-    }
-
     .video-frame {
       position: relative;
       overflow: hidden;
@@ -389,11 +381,6 @@
       aspect-ratio: 16 / 9;
       background: #000;
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
-    }
-
-    .video-frame.short {
-      aspect-ratio: 16 / 9;
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
     }
 
     .video-frame iframe {
@@ -721,10 +708,6 @@
         max-width: 280px;
       }
 
-      .video-item + .video-item {
-        grid-template-columns: 1fr;
-      }
-
       .interview-grid {
         grid-template-columns: 1fr;
       }
@@ -909,16 +892,6 @@
             <div>
               <span class="video-label">Promocional</span>
               <p>Vídeo principal para presentar la obra y su atmósfera.</p>
-            </div>
-          </article>
-
-          <article class="video-item">
-            <div class="video-frame short">
-              <iframe src="https://www.youtube.com/embed/76X0_ZdCn1A?rel=0&amp;playsinline=1&amp;origin=https%3A%2F%2Fjaanguitam-design.github.io" title="Short promocional de Cancelado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div>
-              <span class="video-label">Short</span>
-              <p>Pieza vertical para redes y difusión rápida.</p>
             </div>
           </article>
         </div>
